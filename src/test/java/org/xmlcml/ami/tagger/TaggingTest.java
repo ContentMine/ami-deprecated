@@ -21,9 +21,7 @@ public class TaggingTest {
 	@Test
 	public void testPLOSONE_0113556() throws Exception {
 		String[] args = new String[] {
-				"-i", Fixtures.TAGGED_0113556.toString(),
 				"-i", "src/test/resources/org/xmlcml/ami/plosone/journal.pone.0113556.tagged.xml",
-				"-o", "target/section.xml",
 				"-g", "regex/agriculture.xml",
 		};
 		RegexVisitor.main(args);
