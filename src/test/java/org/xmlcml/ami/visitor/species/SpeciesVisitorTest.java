@@ -14,15 +14,14 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.xmlcml.ami.Fixtures;
+import org.xmlcml.ami.result.ResultsListElement;
 import org.xmlcml.ami.util.AMITestUtil;
+import org.xmlcml.ami.util.AMIUtil;
 import org.xmlcml.ami.visitable.html.HtmlVisitable;
 import org.xmlcml.ami.visitable.pdf.PDFVisitable;
 import org.xmlcml.ami.visitable.svg.SVGVisitable;
 import org.xmlcml.ami.visitable.xml.XMLVisitable;
 import org.xmlcml.ami.visitor.AbstractVisitor;
-import org.xmlcml.ami.visitor.species.SpeciesVisitor;
-import org.xmlcml.ami.result.ResultsListElement;
-import org.xmlcml.ami.util.AMIUtil;
 import org.xmlcml.xml.XMLUtil;
 
 public class SpeciesVisitorTest {
@@ -180,6 +179,7 @@ public class SpeciesVisitorTest {
 	 * @throws Exception
 	 */
 	@Test
+	@Ignore
 	public void testSearchXmlDirCommand() throws Exception {
 		File inputFile = Fixtures.MANY_SPECIES_DIR;
 		File outputDir = new File("target/species/many");
@@ -532,6 +532,18 @@ public class SpeciesVisitorTest {
 		SpeciesVisitor.main(args);
 	}
 	
+	@Test
+	@Ignore
+	public void testHtmlVisitable1() throws Exception {
+		HtmlVisitable htmlVisitable = new HtmlVisitable();
+		htmlVisitable.addFile(Fixtures.METABOLITE_00039_HTML);
+		htmlVisitable.addFile(new File(Fixtures.HTML_DIR, "pb1.html"));
+		
+		AbstractVisitor speciesVisitor = new SpeciesVisitor();
+		speciesVisitor.visit(htmlVisitable);
+	}
+	
+
 	// ================================================
 	/** checks file size in bytes .
 	 * 
